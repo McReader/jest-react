@@ -1,7 +1,7 @@
 {
-  "name": "jest-react-matchers",
+  "name": "jest-react",
   "version": "1.0.0",
-  "description": "This is the extension of the default Jest matchers to make React testing with Jest simplier",
+  "description": "Utils and extensions for testing React components with Jest",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx",
