@@ -47,16 +47,19 @@ setupFilesAfterEnv: ['<rootDir>/tests-setup.js'] // the path you your tests setu
 toThrowWhileRender(error?: Error | string | RegExp)
 ```
 Apply this matcher when testing [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) or components that 
-throw errors. If you don't use it, you see in console that errors you handled are still logged in the console :upside_down_face: : 
-- `Error: Uncaught [...]`
+throw errors. 
+
+If you don't use it, the errors you **expect to receive in your test** will be still logged to the console along with the 
+React warning saying that you need to use [Error Boundaries](https://reactjs.org/docs/error-boundaries.html) :upside_down_face:. 
+It will look smth like that:
+- `Error: Uncaught [...]` (if you use `js-dom` environment)
 - `The above error occurred ...`
 
 More details can be found in this [GitHub issue](https://github.com/facebook/react/issues/11098).
 
-`toThrowWhileRender` matcher solves this problem and your console will be clean from the errors.
-
 #### Example
 ```typescript jsx
+// with throwing component
 const ThrowingComponent: FC = () => {
   throw new Error('Expected error');
 };
@@ -64,4 +67,6 @@ const ThrowingComponent: FC = () => {
 expect(() => { 
   render(<ThrowingComponent />);
 }).toThrowWhileRender('Expected error');
+
+// with error boundary
 ```
