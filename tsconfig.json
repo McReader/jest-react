@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2021",
-    "jsx": "preserve",
-    "module": "ES2020",
-    "moduleResolution": "node",
+    "declaration": true,
+    "target": "ES6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true
   },
@@ -13,7 +14,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "node_modules",
     "**/*.spec.{ts,tsx}",
     "**/*.test.{ts,tsx}"
   ]
